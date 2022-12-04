@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<title>Hom.ie</title>
+<body>
+    <div class="container mt-3">
+        <h1>Create a listing</h1>
+        <h2>Let people know details about where, when and for how long is your property available</h2>
+        <form class="row g-3 p-3">
+
+            <div class="col-md-12 pt-4">
+                Let's quickly fill basic details about the property
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-lg-6 pt-4">
+                <label for="firstName" class="form-label">Name* </b></b></label>
+                <input type="text" class="form-control" id="firstName" required>
+            </div>
+            
+            <div class="col-md-4 pt-4">
+                <label for="contact">Contact</label>
+                <input type="tel" class="form-control" id="contact" placeholder="+353 0123456879">
+            </div>
+
+            <div class="col-md-3 pt-4">
+                <label for="EIR" class="form-label">EIR CODE*</b></b></label>
+                <input type="text" class="form-control" id="EIR" required placeholder="D15 AB34">
+            </div>
+
+            <div class="col-md-4 pt-4">
+                <label for="availableFromDate">Available from date</label>
+                <input type="date" class="form-control" id="availableFromDate" required>
+            </div>
+
+            <div class="col-md-4 pt-4">
+                <label for="availableTillDate">Available till date</label>
+                <input type="date" class="form-control" id="availableTillDate" required>
+            </div>
+
+            <div class="col-md-3 pt-4">
+                <label for="expectedRent">Expected Rent</label>
+                <input type="number" class="form-control" id="expectedRent" placeholder="Euros(Optional)">
+            </div>
+
+            <div class="col-md-3 pt-4">
+                <label for="expectedDeposite">Expected Deposite</label>
+                <input type="number" class="form-control" id="expectedDeposite" placeholder="Euros(Optional)">
+            </div>
+
+            <div class="col-md-4 pt-4">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                Including Bills?</label>
+            </div>
+
+            <div class="col-md-12 pt-4">Now additional details to improve visibility of your listing to others</div>
+
+            <div class="col-md-6 pt-4">
+                <label for="numberOfBedrooms">Number of Bedrooms:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">3</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                    <label class="form-check-label" for="inlineRadio4">4</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                    <label class="form-check-label" for="inlineRadio5">5</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                    <label class="form-check-label" for="inlineRadio6">6</label>
+                  </div>
+            </div>
+
+            <div class="col-md-6 pt-4">
+                <label for="numberofBathrooms">Number of Bathrooms:</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">3</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option4">
+                    <label class="form-check-label" for="inlineRadio4">4</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option5">
+                    <label class="form-check-label" for="inlineRadio5">5</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio6" value="option6">
+                    <label class="form-check-label" for="inlineRadio6">6</label>
+                  </div>
+            </div>
+
+            <div class="col-md-6 pt-4">
+                <label for="ensuiteNumber">How many of the Bathrooms are attached to a Bedroom</label>
+                <input type="number" class="form-control" id="ensuiteNumber" placeholder="Attached Bathrooms">
+            </div>
+
+            <div class="col-md-12 pt-4">
+                Now comes the preferences about the tenant
+            </div>
+
+            
+
+  
+        </form>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
