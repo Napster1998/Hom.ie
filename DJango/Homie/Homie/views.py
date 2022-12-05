@@ -1,6 +1,7 @@
+from contextlib import _RedirectStream
 from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.shortcuts import *
+from django.http import HttpResponseRedirect
 
 
 "Listing Page Triggered"
@@ -37,9 +38,13 @@ def goToListingPage(request):
         wardrobeAvailable = request.POST.get('wardrobeAvailable')
         additionalTextOnListing = request.POST.get('additionalInfo')
 
-
         print(fName,contact,emailId,eir,availableFrom,availableTo,address,rent,deposite,includingBill,noOfBedrooms,noOfBathrooms,ensuiteNumber,
         singleBed,twinShare,singleRoom,malePref,femalePref,couplePref,studentPref,workingPref,tvAvailable,wifiAvailable,washingAvailable,
         tableAvailable,wardrobeAvailable,additionalTextOnListing)
 
+        return redirect('/landingPage')
+
     return render(request,'listingPage.html')
+
+def goToLandingPage(request):
+    return render(request,'landingPage.html')
