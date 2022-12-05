@@ -18,9 +18,6 @@ from django.urls import *
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('listingPage/',views.goToListingPage, name='listingPage'),
-    path('landingPage/',views.goToLandingPage, name='landingPage'),
-    path('difmodule/', include('FunctionalityModules.urls'))
+    path('home/',views.home, name="home")
 ]
 
