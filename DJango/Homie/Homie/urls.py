@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('landingPage/', )
+    path('listingPage/',views.goToListingPage, name='listingPage')
 ]
 
