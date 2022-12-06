@@ -4,7 +4,7 @@ from django.db import models
 
 class listingRaw(models.Model):
     listing_name = models.CharField(max_length=30,default="")
-    listing_contact = models.CharField(max_length=15,default="")
+    listing_contact = models.CharField(max_length=20,default="")
     listing_email = models.CharField(max_length=30,default="")
     listing_eir = models.CharField(max_length=30,default="")
     listing_available_from = models.CharField(max_length=10,default="")
@@ -19,7 +19,7 @@ class listingRaw(models.Model):
     listing_single_bed = models.BooleanField(null = True , default= False)
     listing_twin_share = models.BooleanField(null = True , default= False)
     listing_single_room = models.BooleanField(null = True , default= False)
-    listing_male_preferred = models.BooleanField(default = 0, null = 1)
+    listing_male_preferred = models.BooleanField(null = True , default= False)
     listing_female_preferred = models.BooleanField(null = True , default= False)
     listing_couple_preferred = models.BooleanField(null = True , default= False)
     listing_student_preferred = models.BooleanField(null = True , default= False)
@@ -30,6 +30,7 @@ class listingRaw(models.Model):
     listing_table_available = models.BooleanField(null = True , default= False)
     listing_wardrobe_available = models.BooleanField(null = True , default= False)
     listing_additional_text = models.CharField(max_length=300, default="")
+
 
 
 
