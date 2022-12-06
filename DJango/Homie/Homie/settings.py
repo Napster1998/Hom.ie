@@ -32,8 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "Homie",
-    "FunctionalityModules",
+    'Homie',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +78,7 @@ WSGI_APPLICATION = 'Homie.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'homeieDB', 
+        'NAME': 'homiePreProd', 
         'USER': 'postgres',
         'PASSWORD': 'napster',
         'HOST': '127.0.0.1', 
