@@ -7,6 +7,8 @@ class listingRaw(models.Model):
     listing_contact = models.CharField(max_length=20,default="")
     listing_email = models.CharField(max_length=30,default="")
     listing_eir = models.CharField(max_length=30,default="")
+    listing_latitude = models.CharField(max_length=20,default="")
+    listing_longitude = models.CharField(max_length=20,default="")
     listing_available_from = models.CharField(max_length=10,default="")
     listing_available_to = models.CharField(max_length=10,default="")
     listing_address = models.CharField(max_length=50,default="")

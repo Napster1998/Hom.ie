@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import *
 from django.http import HttpResponseRedirect
 from .models import listingRaw
+from .validators import spaceEir, validateEir
 
-"Listing Page Triggered"
+#Listing Page Triggered
 
 def goToListingPage(request):
 
@@ -38,17 +39,20 @@ def goToListingPage(request):
         wardrobeAvailable = request.POST.get('wardrobeAvailable')
         additionalTextOnListing = request.POST.get('additionalInfo')
 
-        rawListing = [fName,contact,emailId,eir,availableFrom,availableTo,address,rent,deposite,includingBill,noOfBedrooms,noOfBathrooms,ensuiteNumber,
-        singleBed,twinShare,singleRoom,malePref,femalePref,couplePref,studentPref,workingPref,tvAvailable,wifiAvailable,washingAvailable,
-        tableAvailable,wardrobeAvailable,additionalTextOnListing]
-
-        print(noOfBedrooms,noOfBathrooms,malePref,femalePref,couplePref)
+        spacedeir = spaceEir(eir)
+        validated_eir = validateEir(eir)
+        if validated_eir is not False:
+            latitude,longitute = validated_eir
+        else:
+            return render(request,'listingPage.html')
 
         rawlist = listingRaw(
             listing_name = fName, 
             listing_contact = contact, 
             listing_email = emailId, 
-            listing_eir = eir, 
+            listing_eir = spacedeir,
+            listing_latitude = latitude,
+            listing_longitude = longitute,
             listing_available_from = availableFrom, 
             listing_available_to = availableTo,
             listing_address = address, 
