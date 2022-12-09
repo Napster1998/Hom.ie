@@ -1,14 +1,13 @@
 
-const map = L.map('map').setView([53.3498, 6.2603], 13);
+const Mymap = L.map('Mymap').setView([53.350140,-6.266155], 11);
 
-// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: mapBoxApiKey
-// }).addTo(mymap);
 
-// Adding Markers
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(Mymap);
 
-const marker = L.marker([40.748708, -73.985433]).addTo(map);
+
+const marker = L.marker([53.3888336,-6.4185164]).addTo(Mymap);
+
+

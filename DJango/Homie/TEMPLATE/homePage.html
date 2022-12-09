@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     <style>
-        #map{
+        #Mymap{
             height: 800px;
             width: 800px;
             margin:5rem auto;
@@ -14,17 +15,19 @@
     </style>
 </head>
 <body>
-    TESTING
-    <div id="map"></div>
 
-    <div id='map' style='width: 400px; height: 300px;'></div>
+
+<div id='Mymap' style='width: 800px; height: 800px margin:5rem auto;'></div>
+
+
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoibmFwc3Rlcjk4IiwiYSI6ImNsYmVnbWtoNzBiMDEzdW96cjBwMnZ5NWoifQ.NubqvT48UyLA57YXzWtWkA';
   var map = new mapboxgl.Map({
-    container:'map',
+    container:'Mymap',
     style: 'mapbox://styles/mapbox/streets-v11'
   });
 </script>
-<script src="/static/mapLogic.js">
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="/static/mapLogic.js"></script>
 </body>
 </html>
