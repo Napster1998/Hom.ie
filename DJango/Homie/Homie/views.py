@@ -80,9 +80,12 @@ def goToListingPage(request):
 
         rawlist.save()
 
-        return redirect('/landingPage')
+        return redirect('/homePage')
 
     return render(request,'listingPage.html')
 
 def goToLandingPage(request):
     return render(request,'landingPage.html')
+
+def goToHomePage(request):
+    return render(request,'homePage.html')
