@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import *
 from django.http import HttpResponseRedirect
 from .models import listingRaw
-from .validators import spaceEir, validateEir
+from .validators import spaceEir, validateEir, convertDateToFormat
+from datetime import datetime
 
 #Listing Page Triggered
 
@@ -44,7 +45,14 @@ def goToListingPage(request):
         if validated_eir is not False:
             latitude,longitute = validated_eir
         else:
+            print("GoogleAPI returned false")
             return render(request,'listingPage.html')
+
+        dateFormatAvailableFrom = datetime.strptime(availableFrom,'%Y-%m-%d').date()
+        dateFormatAvailableTo = datetime.strptime(availableTo,'%Y-%m-%d').date()
+        print(dateFormatAvailableFrom)
+        print(dateFormatAvailableTo)
+
 
         rawlist = listingRaw(
             listing_name = fName, 
@@ -53,8 +61,8 @@ def goToListingPage(request):
             listing_eir = spacedeir,
             listing_latitude = latitude,
             listing_longitude = longitute,
-            listing_available_from = availableFrom, 
-            listing_available_to = availableTo,
+            listing_available_from = dateFormatAvailableFrom, 
+            listing_available_to = dateFormatAvailableTo,
             listing_address = address, 
             listing_rent = rent, 
             listing_deposite = deposite,
@@ -91,8 +99,12 @@ def goToHomePage(request):
 
     if request.method == "POST":
         mapSearch = request.POST.get('mapSearch')
-        query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch)
-        print(query_set.count())
+        fromWhen = request.POST.get('fromWhen')
+
+        
+        dateFromWhen = convertDateToFormat(fromWhen)
+        query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch,listing_available_from__gte=dateFromWhen)
+        print(query_set)
         resultList = []
         for listing in query_set.values():
             lat,lng = listing["listing_latitude"],listing["listing_longitude"]

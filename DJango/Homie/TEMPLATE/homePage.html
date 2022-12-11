@@ -23,9 +23,13 @@
     <form class="row g-3 p-3" method="POST">
         {% csrf_token %}
         <div class = "row">
-            <div class="col-md-12 pb-4 offset-1">
+            <div class="col-md-6 pb-4 offset-1">
                 <label for="mapSearch" class="form-label">What part of Dublin do you have in mind or just click on search to see all available options. </b></b></label>
                 <input type="text" class="form-control" id="mapSearch" name="mapSearch" placeholder="D01,D02,D03???">
+            </div>
+            <div class="col-md-5 pt-4">
+                <label for="fromWhen">From when</label>
+                <input type="date" class="form-control" id="fromWhen" name="fromWhen">
             </div>
             <div class = "col-md-6 pt-4 offset-1">
                 <button type="submit" class="btn btn-primary">Search</button>

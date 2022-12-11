@@ -1,5 +1,6 @@
 
 import requests
+from datetime import datetime
 
 #Used to add space to EIR code if user doesn't
 
@@ -14,7 +15,7 @@ def spaceEir(eir):
 #Used to call Google Maps API and check if location exists or not and also return response json if it does while returning lat and lng
 
 def validateEir(eir):
-    API_KEY = ""
+    API_KEY = "AIzaSyCtly0rm-GQOUsWupPChTkT7shYVtNl0wk"
     response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+eir+'&key='+API_KEY)
     a = response.json()
     try:
@@ -25,4 +26,7 @@ def validateEir(eir):
         return False
 
 
-
+#Used to format dates on filter of Home Page in 
+def convertDateToFormat(fromWhen):
+    datetime.strptime(fromWhen if fromWhen != "" else datetime.today().strftime('%Y-%m-%d'),'%Y-%m-%d').date()
+    return(fromWhen)
