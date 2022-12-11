@@ -14,7 +14,7 @@ def spaceEir(eir):
 #Used to call Google Maps API and check if location exists or not and also return response json if it does while returning lat and lng
 
 def validateEir(eir):
-    API_KEY = "AIzaSyCtly0rm-GQOUsWupPChTkT7shYVtNl0wk"
+    API_KEY = ""
     response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+eir+'&key='+API_KEY)
     a = response.json()
     try:
