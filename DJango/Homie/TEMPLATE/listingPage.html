@@ -13,59 +13,59 @@
     <div class="container mt-3">
         <h1>Create a listing</h1>
         <h2>Let people know details about where, when and for how long is your property available</h2>
-        <form class="row g-3 p-3">
-
+        <form class="row g-3 p-3" method="POST">
+          {% csrf_token %}
             <div class="col-md-12 pt-4">
                 Let's quickly fill basic details about the property
             </div>
 
             <div class="col-md-6 col-sm-6 col-lg-6 pt-4">
                 <label for="firstName" class="form-label">Name* </b></b></label>
-                <input type="text" class="form-control" id="firstName" required>
+                <input type="text" class="form-control" id="firstName" name="firstName">
             </div>
             
             <div class="col-md-4 pt-4">
                 <label for="contact">Contact</label>
-                <input type="tel" class="form-control" id="contact" placeholder="+353 0123456879">
+                <input type="tel" class="form-control" id="contact" placeholder="+353 0123456879" name="contact">
             </div>
 
             <div class="col-md-12 pt-4">
               <label for="email">Email-Address</label>
-              <input type="email" class="form-control" id="email placeholder="xyz@xyz.com" required>
+              <input type="email" class="form-control" id="email" placeholder="xyz@xyz.com" name="email" >
           </div>
 
             <div class="col-md-3 pt-4">
                 <label for="EIR" class="form-label">EIR CODE*</b></b></label>
-                <input type="text" class="form-control" id="EIR" required placeholder="D15 AB34">
+                <input type="text" class="form-control" id="EIR"  placeholder="D15 AB34" name="EIR">
             </div>
 
             <div class="col-md-4 pt-4">
                 <label for="availableFromDate">Available from date</label>
-                <input type="date" class="form-control" id="availableFromDate" required>
+                <input type="date" class="form-control" id="availableFromDate" name="availableFromDate">
             </div>
 
             <div class="col-md-4 pt-4">
                 <label for="availableTillDate">Available till date</label>
-                <input type="date" class="form-control" id="availableTillDate" required>
+                <input type="date" class="form-control" id="availableTillDate" name ="availableTillDate">
             </div>
 
             <div class="col-md-12 pt-4">
               <label for="fullAddress" class="form-label">Address</label>
-              <textarea class="form-control" id="fullAddress" rows="2" placeholder="Enter full address here"></textarea>
+              <textarea class="form-control" id="fullAddress" rows="2" placeholder="Enter full address here" name="fullAddress"></textarea>
             </div>
 
             <div class="col-md-3 pt-4">
                 <label for="expectedRent">Expected Rent</label>
-                <input type="number" class="form-control" id="expectedRent" placeholder="Euros(Optional)">
+                <input type="number" class="form-control" id="expectedRent" placeholder="Euros(Optional)" name="expectedRent">
             </div>
 
             <div class="col-md-3 pt-4">
                 <label for="expectedDeposite">Expected Deposite</label>
-                <input type="number" class="form-control" id="expectedDeposite" placeholder="Euros(Optional)">
+                <input type="number" class="form-control" id="expectedDeposite" placeholder="Euros(Optional)" name="expectedDeposite">
             </div>
 
             <div class="col-md-4 pt-4">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="billcheck">
                 <label class="form-check-label" for="flexCheckDefault">
                 Including Bills?</label>
             </div>
@@ -75,27 +75,27 @@
             <div class="col-md-6 pt-4">
                 <label for="numberOfBedrooms">Number of Bedrooms:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio1" value=1>
                     <label class="form-check-label" for="inlineRadio1">1</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio2" value=2>
                     <label class="form-check-label" for="inlineRadio2">2</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio3" value=3>
                     <label class="form-check-label" for="inlineRadio3">3</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio4" value=4>
                     <label class="form-check-label" for="inlineRadio4">4</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio5" value=5>
                     <label class="form-check-label" for="inlineRadio5">5</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio6" value=6>
                     <label class="form-check-label" for="inlineRadio6">6</label>
                   </div>
             </div>
@@ -103,48 +103,48 @@
             <div class="col-md-6 pt-4">
                 <label for="numberofBathrooms">Number of Bathrooms:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="option1">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio1" value=1>
                     <label class="form-check-label" for="inlineRadio1">1</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="option2">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio2" value=2>
                     <label class="form-check-label" for="inlineRadio2">2</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option3">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio3" value=3>
                     <label class="form-check-label" for="inlineRadio3">3</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="option4">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio4" value=4>
                     <label class="form-check-label" for="inlineRadio4">4</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="option5">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio5" value=5>
                     <label class="form-check-label" for="inlineRadio5">5</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio6" value="option6">
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio6" value=6>
                     <label class="form-check-label" for="inlineRadio6">6</label>
                   </div>
             </div>
 
             <div class="col-md-3 pt-4">
                 <label for="ensuiteNumber">How many of the Bathrooms are attached to a Bedroom</label>
-                <input type="number" class="form-control" id="ensuiteNumber" placeholder="Attached Bathrooms">
+                <input type="number" class="form-control" id="ensuiteNumber" placeholder="Attached Bathrooms" name="ensuiteNumber">
             </div>
 
             <div class="col-md-6 pt-4">
               Type Of Bed : 
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value=1 name="singleBed">
                 <label class="form-check-label" for="inlineCheckbox1">Single Bed</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value=1 name="twinShare">
                 <label class="form-check-label" for="inlineCheckbox2">Twin Share</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value=1 name="singleRoom">
                 <label class="form-check-label" for="inlineCheckbox3">Single Room</label>
               </div>
             </div>
@@ -152,23 +152,23 @@
             <div class="col-md-12 pt-4">
               Preferred(Optional) : 
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="genderMale" value="Male">
+                <input class="form-check-input" type="checkbox" id="genderMale" value=1 name="malePref">
                 <label class="form-check-label" for="inlineCheckbox1">Male</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="genderFemale" value="Female">
+                <input class="form-check-input" type="checkbox" id="genderFemale" value=1 name="femalePref">
                 <label class="form-check-label" for="inlineCheckbox2">Female</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="genderCouple" value="Couple">
+                <input class="form-check-input" type="checkbox" id="genderCouple" value=1 name="couplePref">
                 <label class="form-check-label" for="inlineCheckbox2">Couple</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="genderStudent" value="Student">
+                <input class="form-check-input" type="checkbox" id="genderStudent" value=1 name="studentPref">
                 <label class="form-check-label" for="inlineCheckbox2">Student</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="genderWorking" value="Working">
+                <input class="form-check-input" type="checkbox" id="genderWorking" value=1 name="workingPref">
                 <label class="form-check-label" for="inlineCheckbox2">Working Professionals</label>
               </div>
             </div>
@@ -179,30 +179,30 @@
 
             <div class="col-md-12 pt-4">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="TV" value="TV">
+                <input class="form-check-input" type="checkbox" id="TV" value=1 name="tvAvailable">
                 <label class="form-check-label" for="inlineCheckbox1">TV</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="Wi-Fi" value="Wi-Fi">
+                <input class="form-check-input" type="checkbox" id="Wi-Fi" value=1 name="wifiAvailable">
                 <label class="form-check-label" for="inlineCheckbox2">Wi-Fi</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="WashingMachine" value="WashingMachine">
+                <input class="form-check-input" type="checkbox" id="WashingMachine" value=1 name="washingAvailable">
                 <label class="form-check-label" for="inlineCheckbox3">Washing Machine</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="StudyTable" value="StudyTable">
+                <input class="form-check-input" type="checkbox" id="StudyTable" value=1 name="tableAvailable">
                 <label class="form-check-label" for="inlineCheckbox4">Study Table</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="Wardrobe" value="Wardrobe">
+                <input class="form-check-input" type="checkbox" id="Wardrobe" value=1 name="wardrobeAvailable">
                 <label class="form-check-label" for="inlineCheckbox5">Wardrobe</label>
               </div>
             </div>
 
             <div class="col-md-12 pt-4">
               <label for="additionalInfo" class="form-label">Add any additional info for someone looking</label>
-              <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Optional"></textarea>
+              <textarea class="form-control" id="additionalInfo" rows="4" placeholder="Optional" name="additionalInfo"></textarea>
             </div>
 
             <div class="col-md-12 pt-4">
