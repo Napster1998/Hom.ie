@@ -80,7 +80,7 @@ def goToListingPage(request):
 
         rawlist.save()
 
-        return redirect('/homePage')
+        return redirect('/homePage',{'listings':None})
 
     return render(request,'listingPage.html')
 
@@ -91,7 +91,12 @@ def goToHomePage(request):
 
     if request.method == "POST":
         mapSearch = request.POST.get('mapSearch')
-        query_set = (listingRaw.objects.filter(listing_eir=mapSearch))
+        query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch)
+        print(query_set.count())
+        resultList = []
+        for listing in query_set.values():
+            lat,lng = listing["listing_latitude"],listing["listing_longitude"]
+            resultList.append({'lat':lat,'lng':lng})
+        return render(request,'homePage.html',{'listings':resultList})
 
-        
     return render(request,'homePage.html')

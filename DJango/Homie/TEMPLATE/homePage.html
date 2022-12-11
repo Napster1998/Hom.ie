@@ -17,20 +17,23 @@
 </head>
 <body>
     <div class = "row-md-2">
-    <div class="row-md-10 pt-4">
+    <div class="row-md-12 pt-4 offset-1">
         <p class="text-center"><h2>Search for your next home here! Just add the first part of the EIR code! eg: "D01" and see the available options!</h2></p>
     </div>
     <form class="row g-3 p-3" method="POST">
         {% csrf_token %}
         <div class = "row">
-            <div class="col-md-6 pb-4">
-                <label for="mapSearch" class="form-label">What part of Dublin do you have in mind.. </b></b></label>
+            <div class="col-md-12 pb-4 offset-1">
+                <label for="mapSearch" class="form-label">What part of Dublin do you have in mind or just click on search to see all available options. </b></b></label>
                 <input type="text" class="form-control" id="mapSearch" name="mapSearch" placeholder="D01,D02,D03???">
             </div>
-            <div class = "col-md-6 pt-4.5">
+            <div class = "col-md-6 pt-4 offset-1">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </div>
+            {% if listings %}
+            {{ listings|json_script:"listings" }}
+            {% endif %}
     </form>
     <div class = "row-md-2">
 
