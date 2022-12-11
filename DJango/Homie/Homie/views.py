@@ -88,4 +88,10 @@ def goToLandingPage(request):
     return render(request,'landingPage.html')
 
 def goToHomePage(request):
+
+    if request.method == "POST":
+        mapSearch = request.POST.get('mapSearch')
+        query_set = (listingRaw.objects.filter(listing_eir=mapSearch))
+
+        
     return render(request,'homePage.html')
