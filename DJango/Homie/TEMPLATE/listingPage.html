@@ -21,27 +21,27 @@
 
             <div class="col-md-6 col-sm-6 col-lg-6 pt-4">
                 <label for="firstName" class="form-label">Name* </b></b></label>
-                <input type="text" class="form-control" id="firstName" name="firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
             </div>
             
             <div class="col-md-4 pt-4">
                 <label for="contact">Contact</label>
-                <input type="tel" class="form-control" id="contact" placeholder="+353 0123456879" name="contact">
+                <input type="tel" class="form-control" id="contact" placeholder="+353 0123456879" name="contact" required>
             </div>
 
             <div class="col-md-12 pt-4">
               <label for="email">Email-Address</label>
-              <input type="email" class="form-control" id="email" placeholder="xyz@xyz.com" name="email" >
+              <input type="email" class="form-control" id="email" placeholder="xyz@xyz.com" name="email" required>
           </div>
 
             <div class="col-md-3 pt-4">
                 <label for="EIR" class="form-label">EIR CODE*</b></b></label>
-                <input type="text" class="form-control" id="EIR"  placeholder="D15 AB34" name="EIR">
+                <input type="text" class="form-control" id="EIR"  placeholder="D15 AB34" name="EIR" required>
             </div>
 
             <div class="col-md-4 pt-4">
                 <label for="availableFromDate">Available from date</label>
-                <input type="date" class="form-control" id="availableFromDate" name="availableFromDate">
+                <input type="date" class="form-control" id="availableFromDate" name="availableFromDate" required>
             </div>
 
             <div class="col-md-4 pt-4">
@@ -56,12 +56,12 @@
 
             <div class="col-md-3 pt-4">
                 <label for="expectedRent">Expected Rent</label>
-                <input type="number" class="form-control" id="expectedRent" placeholder="Euros(Optional)" name="expectedRent">
+                <input type="number" class="form-control" id="expectedRent" placeholder="Euros(Optional)" name="expectedRent" required>
             </div>
 
             <div class="col-md-3 pt-4">
                 <label for="expectedDeposite">Expected Deposite</label>
-                <input type="number" class="form-control" id="expectedDeposite" placeholder="Euros(Optional)" name="expectedDeposite">
+                <input type="number" class="form-control" id="expectedDeposite" placeholder="Euros(Optional)" name="expectedDeposite" required>
             </div>
 
             <div class="col-md-4 pt-4">
@@ -72,10 +72,10 @@
 
             <div class="col-md-12 pt-4">Now additional details to improve visibility of your listing to others</div>
 
-            <div class="col-md-6 pt-4">
+            <div class="col-md-6 pt-4" required>
                 <label for="numberOfBedrooms">Number of Bedrooms:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio1" value=1>
+                    <input class="form-check-input" type="radio" name="numberOfBedrooms" id="inlineRadio1" value=1 checked>
                     <label class="form-check-label" for="inlineRadio1">1</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -103,7 +103,7 @@
             <div class="col-md-6 pt-4">
                 <label for="numberofBathrooms">Number of Bathrooms:</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio1" value=1>
+                    <input class="form-check-input" type="radio" name="numberofBathrooms" id="inlineRadio1" value=1 checked>
                     <label class="form-check-label" for="inlineRadio1">1</label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -130,7 +130,7 @@
 
             <div class="col-md-3 pt-4">
                 <label for="ensuiteNumber">How many of the Bathrooms are attached to a Bedroom</label>
-                <input type="number" class="form-control" id="ensuiteNumber" placeholder="Attached Bathrooms" name="ensuiteNumber">
+                <input type="number" class="form-control" id="ensuiteNumber" placeholder="0 if none" name="ensuiteNumber" required>
             </div>
 
             <div class="col-md-6 pt-4">
