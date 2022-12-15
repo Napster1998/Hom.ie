@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u07#v@_=at7o_lyq-6e05ac2n%09&14n4axs^k#)^abe(t(+bk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -122,12 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-STATICFILES_DIRS = (
-  os.path.join(SITE_ROOT, 'static/'),
-)
-
+# SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+# STATICFILES_DIRS = (
+#   os.path.join(SITE_ROOT, 'static/'),
+# )
 
 
 # Default primary key field type
