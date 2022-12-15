@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.shortcuts import *
 from django.http import HttpResponseRedirect
 from .models import listingRaw
-from .validators import spaceEir, validateEir, convertDateToFormat
+from .validators import spaceEir, tilldate, validateEir, convertDateToFormat, tillWhenSetter, fromWhenSetter
 from datetime import datetime
+from django.db.models import Q
+
 
 #Listing Page Triggered
 
@@ -98,17 +100,29 @@ def goToLandingPage(request):
 def goToHomePage(request):
 
     if request.method == "POST":
-        mapSearch = request.POST.get('mapSearch')
-        fromWhen = request.POST.get('fromWhen')
 
+        #Basic Filters
+        mapSearch = request.POST.get('mapSearch')
+        dateFromWhen = fromWhenSetter(fromWhen=request.POST.get('fromWhen'))
+        dateTillWhen = tillWhenSetter(tillWhen=request.POST.get('tillWhen'))
+
+        #Filter for Preferences 
+        maleClicked = True if request.POST.get('malePref') else False
+        femaleClicked = True if request.POST.get('femalePref') else False
+        coupleClicked = True if request.POST.get('couplePref') else False
+        studentClicked = True if request.POST.get('studentPref') else False
+        workingProfessionalClicked = True if request.POST.get('workingPref') else False
         
-        dateFromWhen = convertDateToFormat(fromWhen)
-        query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch,listing_available_from__gte=dateFromWhen)
-        print(query_set)
+        #Query Builder and Return Result
+        query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch,listing_available_from__gte=dateFromWhen,
+        listing_available_to__lte=dateTillWhen).filter(Q(listing_male_preferred=maleClicked) | Q(listing_male_preferred=True))
         resultList = []
         for listing in query_set.values():
             lat,lng = listing["listing_latitude"],listing["listing_longitude"]
-            resultList.append({'lat':lat,'lng':lng})
+            noOfBeds = listing["listing_no_of_bedrooms"]
+            eir = listing["listing_eir"]
+            contact = listing["listing_contact"]
+            resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact})
         return render(request,'homePage.html',{'listings':resultList})
 
     return render(request,'homePage.html')

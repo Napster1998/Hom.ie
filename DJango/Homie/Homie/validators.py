@@ -30,3 +30,30 @@ def validateEir(eir):
 def convertDateToFormat(fromWhen):
     datetime.strptime(fromWhen if fromWhen != "" else datetime.today().strftime('%Y-%m-%d'),'%Y-%m-%d').date()
     return(fromWhen)
+
+
+#Setting the Till date
+
+def tilldate():
+    temp = datetime(2100, 12, 31).strftime('%Y-%m-%d')
+    return temp
+
+def fromdate():
+    temp = datetime(2022, 9, 10).strftime('%Y-%m-%d')
+    return temp
+
+def tillWhenSetter(tillWhen):
+    if tillWhen != "":
+        dateTillWhen = datetime.strptime(tillWhen, '%Y-%m-%d').date()
+    else:
+        dateTillWhen = datetime.strptime(tilldate(), '%Y-%m-%d').date()
+    return(dateTillWhen)
+
+def fromWhenSetter(fromWhen):
+    if fromWhen != "":
+        dateFromWhen = datetime.strptime(fromWhen, '%Y-%m-%d').date()
+    else:
+        dateFromWhen = datetime.strptime(fromdate(), '%Y-%m-%d').date()
+    return(dateFromWhen)
+
+

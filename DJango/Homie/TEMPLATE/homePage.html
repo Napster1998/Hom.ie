@@ -23,23 +23,58 @@
     <form class="row g-3 p-3" method="POST">
         {% csrf_token %}
         <div class = "row">
-            <div class="col-md-6 pb-4 offset-1">
+            <div class="col-md-3 pb-4 offset-2">
                 <label for="mapSearch" class="form-label">What part of Dublin do you have in mind or just click on search to see all available options. </b></b></label>
                 <input type="text" class="form-control" id="mapSearch" name="mapSearch" placeholder="D01,D02,D03???">
             </div>
-            <div class="col-md-5 pt-4">
+            <div class="col-md-3 pt-5">
                 <label for="fromWhen">From when</label>
                 <input type="date" class="form-control" id="fromWhen" name="fromWhen">
             </div>
-            <div class = "col-md-6 pt-4 offset-1">
-                <button type="submit" class="btn btn-primary">Search</button>
+            <div class="col-md-3 pt-5">
+                <label for="fromWhen">Till when</label>
+                <input type="date" class="form-control" id="tillWhen" name="tillWhen">
             </div>
         </div>
+
+        <div class="col-md-10 pt-4 offset-2">
+            Preferred Options : 
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="genderMale" value=1 name="malePref">
+              <label class="form-check-label" for="inlineCheckbox1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="genderFemale" value=1 name="femalePref">
+              <label class="form-check-label" for="inlineCheckbox2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="genderCouple" value=1 name="couplePref">
+              <label class="form-check-label" for="inlineCheckbox2">Couple</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="genderStudent" value=1 name="studentPref">
+              <label class="form-check-label" for="inlineCheckbox2">Student</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="genderWorking" value=1 name="workingPref">
+              <label class="form-check-label" for="inlineCheckbox2">Working Professionals</label>
+            </div>
+        </div>
+
+            <div class = "col-md-3 pt-4 offset-1">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
             {% if listings %}
             {{ listings|json_script:"listings" }}
             {% endif %}
     </form>
     <div class = "row-md-2">
+
+    <div class = "col-md-3 pt-4 offset-1">
+      <a href="/listingPage">
+        <button type="button" class="btn btn-success">Or Create your own listing</button>
+      </a>
+    </div>
 
 
 

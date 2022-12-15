@@ -21,7 +21,7 @@ class listingRaw(models.Model):
     listing_single_bed = models.BooleanField(null = True , default= False)
     listing_twin_share = models.BooleanField(null = True , default= False)
     listing_single_room = models.BooleanField(null = True , default= False)
-    listing_male_preferred = models.BooleanField(null = True , default= False)
+    listing_male_preferred = models.BooleanField(null = True, default= False)
     listing_female_preferred = models.BooleanField(null = True , default= False)
     listing_couple_preferred = models.BooleanField(null = True , default= False)
     listing_student_preferred = models.BooleanField(null = True , default= False)

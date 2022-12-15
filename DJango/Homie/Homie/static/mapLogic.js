@@ -14,12 +14,24 @@ if (listings.textContent) {
 
     listingsObject = JSON.parse(listings.textContent);
 
-    console.log(listingsObject)
+    console.log('listingObjeect:',listingsObject)
 
 }
 
 listingsArr = listingsObject || []
+console.log(listingsArr)
 
+
+let eir = 'D15 R7YK'
 listingsArr.forEach(element => {
-    var marker = L.marker(element).addTo(Mymap);
+    console.log('beds',element.noOfBeds)
+    let popup = `<div>
+    <b>EIR CODE</b>
+    <p>${element.eir}</p>
+    <b>Available Beds</b>
+    <p>${element.noOfBeds}</p>
+    <b>Contact</b>
+    <p>${element.contact}</p>
+    </div>`
+    const marker = L.marker(element).bindPopup(popup).addTo(Mymap);
 });
