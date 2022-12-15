@@ -35,3 +35,11 @@ A thought of simply having all this information in a proper format occurred.
 This led to creation of Hom.ie, a Web Tool that when used will be able to consize the information and present it in a more readable manner
 Services such as Daft.ie and others available didn’t respond back and people had to rely more on the information available on platforms such as whatsapp groups with more than 500 members in each group with around 10 ads posted online everyday.
 This meant that if people simply had a single place to access the data properly, one could be able find their accommodation easier. 
+
+Keeping the process as simple as it can be, the user will land on the Home Page which is the Map. This map currently won’t display anything until the search button is pressed. 
+Once pressed by the map queries and lists all the available properties with the data available in the backend.
+Alternatively, filters depending on the area as well as on the basis of dates can be applied 
+The search box allows the user to input EIR code entirely for a specific property or the first part of the EIR code eg. D10 to view all properties available in that specific area.
+The user can then click on labels that appear and see more details about the property.
+User can also click on create a listing and create their own to be added to the map for others to view.
+The listing page consists of plenty details to fine tune your listing with some required fields as well as some fields that are optional related to preferences.
