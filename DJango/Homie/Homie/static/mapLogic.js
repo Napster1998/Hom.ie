@@ -22,9 +22,7 @@ listingsArr = listingsObject || []
 console.log(listingsArr)
 
 
-let eir = 'D15 R7YK'
 listingsArr.forEach(element => {
-    console.log('beds',element.noOfBeds)
     let popup = `<div>
     <b>EIR CODE</b>
     <p>${element.eir}</p>

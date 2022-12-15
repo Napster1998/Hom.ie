@@ -94,9 +94,6 @@ def goToListingPage(request):
 
     return render(request,'listingPage.html')
 
-def goToLandingPage(request):
-    return render(request,'landingPage.html')
-
 def goToHomePage(request):
 
     if request.method == "POST":
@@ -107,22 +104,27 @@ def goToHomePage(request):
         dateTillWhen = tillWhenSetter(tillWhen=request.POST.get('tillWhen'))
 
         #Filter for Preferences 
-        maleClicked = True if request.POST.get('malePref') else False
-        femaleClicked = True if request.POST.get('femalePref') else False
-        coupleClicked = True if request.POST.get('couplePref') else False
-        studentClicked = True if request.POST.get('studentPref') else False
-        workingProfessionalClicked = True if request.POST.get('workingPref') else False
+        # maleClicked = True if request.POST.get('malePref') else False
+        # femaleClicked = True if request.POST.get('femalePref') else False
+        # coupleClicked = True if request.POST.get('couplePref') else False
+        # studentClicked = True if request.POST.get('studentPref') else False
+        # workingProfessionalClicked = True if request.POST.get('workingPref') else False
         
         #Query Builder and Return Result
         query_set = listingRaw.objects.filter(listing_eir__contains=mapSearch,listing_available_from__gte=dateFromWhen,
-        listing_available_to__lte=dateTillWhen).filter(Q(listing_male_preferred=maleClicked) | Q(listing_male_preferred=True))
+        listing_available_to__lte=dateTillWhen)
         resultList = []
         for listing in query_set.values():
             lat,lng = listing["listing_latitude"],listing["listing_longitude"]
             noOfBeds = listing["listing_no_of_bedrooms"]
             eir = listing["listing_eir"]
             contact = listing["listing_contact"]
+            print(resultList)
             resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact})
         return render(request,'homePage.html',{'listings':resultList})
 
     return render(request,'homePage.html')
+
+
+
+    
