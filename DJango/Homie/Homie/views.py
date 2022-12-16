@@ -119,8 +119,9 @@ def goToHomePage(request):
             noOfBeds = listing["listing_no_of_bedrooms"]
             eir = listing["listing_eir"]
             contact = listing["listing_contact"]
+            rent = listing["listing_rent"]
             print(resultList)
-            resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact})
+            resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact,'rent':rent})
         return render(request,'homePage.html',{'listings':resultList})
 
     return render(request,'homePage.html')
