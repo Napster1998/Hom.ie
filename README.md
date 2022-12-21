@@ -23,5 +23,59 @@ This displays the EIR code, the number of beds available, the expected rent as w
 ListingPage:
 
 	Another option alongside search on the HomePage is the Create a listing. This page comprises of a form that is used to create a listing on the map. The form includes details to be filled by the user while creating a listing. It accepts values with the help of validators that make sure data in a proper format is added to these fields. They also include the implementation of bootstrap in a way that the page is reactive to the size change of the screen. This makes sure that people on the phones can also have a proper layout while filling the form. The EIR code is a required field wherein once the user enters the EIR code, Google Map API is called to fetch the Lat and Lng values and stored in the Database along with other information which is then used to plot location on the OpenStreetMap.
+	
+	
+Implementation:
+
+File Structure:
+
+TEMPLATE:
+
+	The frontend consists of two HTML files, listingPage.html & homePage.html in TEMPLATE that have the bootstrap as well as some CSS that make up the two main pages.
+
+
+	 
+PYTHON:
+
+	The backend is handled by the .py files with the views.py file consisting of all the functions that executes once the user lands on either of the pages and presses submit or search. 
+	
+	The validators.py is written with validators for different functionality such as fetching EIR code and even accepting correct values and maintaining proper type of data being entered in the proper table.
+
+	Settings.py consists of all the settings required for the project to run and work as intended.
+
+	Models.py consists of the class that creates a table in the backend database as well as setting default values for null as well as default values once an entry is made in the backend database table.
+
+JavaScript:
+
+	The static files that can include CSS and JS files in this project consists of a single file called MapLogic.js that holds the code to set a default view of the map over Dublin. This code also is responsible for implementing the map as well as holds a loop that accepts the injected value from the python code and then plots the markers on the map once it is returned with a result. This is the functioning of the MapLogic.js file.
+
+
+
+
+
+Version Control:
+
+	GitHub was used as the repository for the following project to enable working in a team. Three branches created, Main, PreProd and Development. The majority of the project was being developed and committed to the development branch while the PreProd branch was used as a testing area once modules were developed. Ultimately the code was then committed to the main branch.
+
+Link: https://github.com/Napster1998/Hom.ie
+
+
+PostgreSQL:
+	
+	PostgreSQL was used as a database due to the further possible expandability of the data. SQL Queries are also possible to be written as Python and hence SQL DB was used as it’s powerful and can handle huge amount of data which futureproofs the tool. The credentials for the DB were provided in the settings.py file. 
+
+
+
+
+
+
+
+
+Future Scope:
+
+	Future scope will include addition of the Login Module wherein every person who creates a listing will have to login. This will help in the ability for users to delete their listings as well once the property is no longer available.
+
+Additional filters also can be made available since the data is already collected and stored about preferences during the registration process. This will fine tune the search result on the map for most users. 
+
 
 
