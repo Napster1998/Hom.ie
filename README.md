@@ -75,7 +75,46 @@ Future Scope:
 
 	Future scope will include addition of the Login Module wherein every person who creates a listing will have to login. This will help in the ability for users to delete their listings as well once the property is no longer available.
 
-Additional filters also can be made available since the data is already collected and stored about preferences during the registration process. This will fine tune the search result on the map for most users. 
+Additional filters also can be made available since the data is already collected and stored about preferences during the registration process. This will fine tune the search result on the map for most users.
+
+Users can then have a unique ID that will shortlist their properties by marking them favorite and then add or remove from their list as they prefer. This will also give the ability to make multiple listings as well as make multiple listings of the same property.
+
+Adding a bit more design element will also make the website more user friendly and inculcating images if the user wants to upload any during the listing creation process will be a huge benefit to the interested person as well as the person listing the property. 
+
+
+Contribution:
+Nitish Surve:
+
+MapLogic.js
+Validators.py
+Models.py
+Views.py
+homePage.html
+
+Yash Karande:
+
+DB Setup
+Settings.py
+DB Table Decisions
+
+
+Sanket Sarfare:
+
+listingPage.html
+Design
+Development Suggestions
+
+Asad Mailk:
+
+Testing 
+Presentation Preparation
+
+	
+Conclusion:
+
+Hom.ie following the basic principle that a visual information is far more easily comprehensibly and easier to understand than simply written in text with no format being followed. It aims to diminish the lack of information about available properties from reaching to people because of it being on different websites as well as hundreds of messages all written in different format by getting them all together and presenting it graphically on a map. It also makes the process even easier by the ability to add filters by area as well as by having the users enter to their preference if they are looking for something in a specific time period. A combination of the mentioned tool usage should make the process of searching for an accommodation easier keeping in mind the housing condition of Dublin.
+![image](https://user-images.githubusercontent.com/46029472/209028245-0590d1e0-dc78-4e0c-910b-e1052f08d0fd.png)
+
 
 
 
