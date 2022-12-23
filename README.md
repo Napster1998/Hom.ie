@@ -102,7 +102,20 @@ Asad Mailk:
 Testing 
 Presentation Preparation
 
-	
+Setup:
+
+Download ZIP and extract on Desktop.
+Download PostgreSQL from the following Link depending on your OS :  https://www.postgresql.org/download/
+Run PostGreSQL service
+With the PostgreSQL running, open the project in VS Code and set a password and database table name and make sure to change it in settings.py on the downloaded code.
+Open terminal in VS Code and go to path Desktop/Hom.ie/Hom.ie/DJango
+type command 'source env/bin/activate'
+This will activate the virtual Enviornment.
+Now change directory to path Desktop/Hom.ie/Hom.ie/DJango/Homie
+Here, type the command python3 manage.py runserver
+This should launch the server and now you can go to http://127.0.0.1:8000/homePage/
+
+
 Conclusion:
 
 Hom.ie following the basic principle that a visual information is far more easily comprehensibly and easier to understand than simply written in text with no format being followed. It aims to diminish the lack of information about available properties from reaching to people because of it being on different websites as well as hundreds of messages all written in different format by getting them all together and presenting it graphically on a map. It also makes the process even easier by the ability to add filters by area as well as by having the users enter to their preference if they are looking for something in a specific time period. A combination of the mentioned tool usage should make the process of searching for an accommodation easier keeping in mind the housing condition of Dublin.
