@@ -51,8 +51,6 @@ JavaScript:
 
 
 
-
-
 Version Control:
 
 	GitHub was used as the repository for the following project to enable working in a team. Three branches created, Main, PreProd and Development. The majority of the project was being developed and committed to the development branch while the PreProd branch was used as a testing area once modules were developed. Ultimately the code was then committed to the main branch.
@@ -63,11 +61,6 @@ Link: https://github.com/Napster1998/Hom.ie
 PostgreSQL:
 	
 	PostgreSQL was used as a database due to the further possible expandability of the data. SQL Queries are also possible to be written as Python and hence SQL DB was used as it’s powerful and can handle huge amount of data which futureproofs the tool. The credentials for the DB were provided in the settings.py file. 
-
-
-
-
-
 
 
 
@@ -113,8 +106,3 @@ Presentation Preparation
 Conclusion:
 
 Hom.ie following the basic principle that a visual information is far more easily comprehensibly and easier to understand than simply written in text with no format being followed. It aims to diminish the lack of information about available properties from reaching to people because of it being on different websites as well as hundreds of messages all written in different format by getting them all together and presenting it graphically on a map. It also makes the process even easier by the ability to add filters by area as well as by having the users enter to their preference if they are looking for something in a specific time period. A combination of the mentioned tool usage should make the process of searching for an accommodation easier keeping in mind the housing condition of Dublin.
-![image](https://user-images.githubusercontent.com/46029472/209028245-0590d1e0-dc78-4e0c-910b-e1052f08d0fd.png)
-
-
-
-
