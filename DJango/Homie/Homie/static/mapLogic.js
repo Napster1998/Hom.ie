@@ -28,6 +28,8 @@ listingsArr.forEach(element => {
     <p>${element.eir}</p>
     <b>Available Beds</b>
     <p>${element.noOfBeds}</p>
+    <b>Rent Per Month</b>
+    <p>${element.rent}</p>
     <b>Contact</b>
     <p>${element.contact}</p>
     </div>`
