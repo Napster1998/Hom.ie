@@ -2,10 +2,11 @@ from contextlib import _RedirectStream
 from django.http import HttpResponse
 from django.shortcuts import *
 from django.http import HttpResponseRedirect
-from .models import listingRaw
-from .validators import spaceEir, tilldate, validateEir, convertDateToFormat, tillWhenSetter, fromWhenSetter
+from .models import listingRaw , loginDetails, listing, mappings, propertyDetails, propertyCostingDetails, propertyAvailabilityDetails, propertyRoom, propertyBedroomInfo, preferenceInfo, aminitiesInfo, extraInfo
+from .validators import spaceEir, tilldate, validateEir, convertDateToFormat, tillWhenSetter, fromWhenSetter, responseReturn
 from datetime import datetime
 from django.db.models import Q
+import uuid
 
 
 #Listing Page Triggered
@@ -41,6 +42,9 @@ def goToListingPage(request):
         tableAvailable = request.POST.get('tableAvailable')
         wardrobeAvailable = request.POST.get('wardrobeAvailable')
         additionalTextOnListing = request.POST.get('additionalInfo')
+        listing_id_generated = uuid.uuid4()
+        agent_id_generated = uuid.uuid4()
+        property_id_generated = uuid.uuid4()
 
         spacedeir = spaceEir(eir)
         validated_eir = validateEir(eir)
@@ -85,10 +89,115 @@ def goToListingPage(request):
             listing_washing_available = washingAvailable,
             listing_table_available = tableAvailable,
             listing_wardrobe_available = wardrobeAvailable,
-            listing_additional_text = additionalTextOnListing
+            listing_additional_text = additionalTextOnListing,
+            listing_id = listing_id_generated
             )
 
+        rawAgent = loginDetails(
+            agent_id = agent_id_generated,
+            agent_name = fName,
+            agent_contact = contact,
+            agent_email = emailId
+            )
+
+        rawlisttable = listing(
+            listing_id = listing_id_generated,
+            property_id = property_id_generated,
+            eir_code = spacedeir,
+            rent = rent,
+            address = address,
+            no_of_bedroom = noOfBedrooms
+            )
+
+        mapper = mappings(
+            eir_code = spacedeir,
+            latitude = latitude,
+            longitude = longitute,
+            responseJSON = responseReturn(eir)
+        )
+
+        property_cost_id_generated = uuid.uuid4()
+        property_availability_id_generated = uuid.uuid4()
+        property_rooms_id_generated = uuid.uuid4()
+        property_preference_id_generated = uuid.uuid4()
+        property_amenities_id_generated = uuid.uuid4()
+        property_info_id_generaated = uuid.uuid4()
+        property_bedroom_id = uuid.uuid4()
+
+        prop = propertyDetails(
+            property_id = property_id_generated,
+            property_cost_id = property_cost_id_generated,
+            property_availability_id = property_availability_id_generated,
+            property_rooms_id = property_rooms_id_generated,
+            property_preference_id = property_preference_id_generated,
+            property_amenities_id = property_amenities_id_generated,
+            property_info_id = property_info_id_generaated
+        )
+
+        cost = propertyCostingDetails(
+            property_cost_id = property_cost_id_generated,
+            rent = rent,
+            deposite = deposite,
+            billsIncluded = includingBill
+        )
+
+        avail = propertyAvailabilityDetails(
+            property_availability_id = property_availability_id_generated,
+            availableFrom = dateFormatAvailableFrom,
+            availableTill = dateFormatAvailableTo
+        )
+
+        roomDetail = propertyRoom(
+            property_rooms_id = property_rooms_id_generated,
+            bedroom_id = property_bedroom_id,
+            no_of_bathrooms = noOfBathrooms,
+            ensuite_no = ensuiteNumber
+        )
+
+        bedroomDetails = propertyBedroomInfo(
+            bedroom_id = property_bedroom_id,
+            no_of_bedrooms = noOfBedrooms,
+            single_bed = singleBed,
+            #Double Bed doesn't exist
+            double_bed = singleRoom,
+            twin_share = twinShare
+        )
+
+        preferences = preferenceInfo(
+            property_preference_id = property_preference_id_generated,
+            male_pref = malePref,
+            female_pref = femalePref,
+            couple_pref = couplePref,
+            student_pref = studentPref,
+            working_pref = workingPref
+        )
+
+        aminities = aminitiesInfo(
+            property_amenities_id = property_amenities_id_generated,
+            tv_available = tvAvailable,
+            table_available = tableAvailable,
+            wardrobe_available = wardrobeAvailable,
+            washing_available = washingAvailable
+        )
+
+        extrainfo = extraInfo(
+            property_info_id = property_info_id_generaated,
+            address = address,
+            additional_info = additionalTextOnListing
+        )
+
+        extrainfo.save()
+        aminities.save()
+        preferences.save()
+        bedroomDetails.save()
+        roomDetail.save()
+        avail.save()
+        cost.save()
+        prop.save()
+        mapper.save()
         rawlist.save()
+        rawlisttable.save()
+        rawAgent.save()
 
         return redirect('/homePage',{'listings':None})
 
@@ -119,8 +228,9 @@ def goToHomePage(request):
             noOfBeds = listing["listing_no_of_bedrooms"]
             eir = listing["listing_eir"]
             contact = listing["listing_contact"]
+            rent = listing["listing_rent"]
             print(resultList)
-            resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact})
+            resultList.append({'lat':lat,'lng':lng,'noOfBeds':noOfBeds,'eir':eir,'contact':contact,'rent':rent})
         return render(request,'homePage.html',{'listings':resultList})
 
     return render(request,'homePage.html')

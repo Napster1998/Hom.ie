@@ -1,6 +1,7 @@
 
 import requests
 from datetime import datetime
+from .models import mappings
 
 #Used to add space to EIR code if user doesn't
 
@@ -17,13 +18,21 @@ def spaceEir(eir):
 def validateEir(eir):
     API_KEY = "AIzaSyCtly0rm-GQOUsWupPChTkT7shYVtNl0wk"
     response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+eir+'&key='+API_KEY)
-    a = response.json()
+    ApiResponse = response.json()
     try:
-        lat = a['results'][0]["geometry"]["location"]["lat"]
-        lng = a['results'][0]["geometry"]["location"]["lng"]
+        lat = ApiResponse['results'][0]["geometry"]["location"]["lat"]
+        lng = ApiResponse['results'][0]["geometry"]["location"]["lng"]
         return(str(lat),str(lng))
     except:
         return False
+
+def responseReturn(eir):
+
+    API_KEY = "AIzaSyCtly0rm-GQOUsWupPChTkT7shYVtNl0wk"
+    response = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+eir+'&key='+API_KEY)
+    ApiResponse = response.json()
+    return(str(ApiResponse))
+
 
 
 #Used to format dates on filter of Home Page in 
